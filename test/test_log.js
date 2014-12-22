@@ -5,9 +5,9 @@
 // testDependencies root path: apps/campaign_creater/stacit/ad/js
 
 require('./config').init(__filename, __dirname);
-var log = require('../static/ad/js/lib/log.js');
-var tracker = require('../static/ad/js/lib/tracker.js');
-var set = require('../static/ad/js/lib/set.js');
+var log = require('../libs/log.js');
+var tracker = require('../libs/tracker.js');
+var set = require('../libs/set.js');
 var sinon = require('sinon');
 // --------------------------------------------------------
 // Your Unit Test Start

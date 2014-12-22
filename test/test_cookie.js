@@ -3,7 +3,7 @@
 // --------------------------------------------------------
 
 require('./config').init(__filename, __dirname);
-require('../lib/cookie.js');
+require('../libs/cookie.js');
 var sinon = require('sinon');
 
 // --------------------------------------------------------
