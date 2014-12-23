@@ -10,6 +10,57 @@ var set = require('../libs/set.js');
 // --------------------------------------------------------
 
 describe('TEST_' + fileName, function() {
+    describe('map', function() {
+
+        it('test map over array', function() {
+            var a = ["1", "2", "3"];
+            var rv = set.map(a, function(value, index) {
+                return value;
+            });
+            var rk = set.map(a, function(value, index) {
+                return index;
+            });
+            assert.deepEqual(rv, ["1", "2", "3"]);
+            assert.deepEqual(rk, [0, 1, 2]);
+        });
+
+        it('test map over object', function() {
+            var a = {
+                "1": "a",
+                "2": "b",
+                "3": "c"
+            };
+            var rv = set.map(a, function(value, index) {
+                return value;
+            });
+            var rk = set.map(a, function(value, index) {
+                return index;
+            });
+            assert.deepEqual(rv, ["a", "b", "c"]);
+            assert.deepEqual(rk, ["1", "2", "3"]);
+        });
+
+        it('test map against prototype', function() {
+            Array.prototype.filter_0 = function() {
+                var res = [];
+                for (var i = 0; i < this.length; i++) {
+                    if (this[i] != 0) {
+                        res.push(this[i]);
+                    }
+                }
+                return res;
+            };
+
+            var listeners = ["a", "b", "c"];
+            var r = set.map(listeners, function(value, index) {
+                return value;
+            })
+            var rv = [];
+            for (var i in listeners) rv.push(i);
+            assert.deepEqual(rv, ["0", "1", "2", "filter_0"]);
+            assert.deepEqual(r, ["a", "b", "c"]);
+        });
+    });
     describe('intersect', function() {
 
         var a = ["1", "2", "3"];
