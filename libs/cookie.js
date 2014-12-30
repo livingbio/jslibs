@@ -155,10 +155,10 @@
     /* moz cookie lib use cookie format */
     var Cookie = {
 
-        getItem: function (sKey) {
+        getItem: function (sKey, default_val) {
 
             verification_key(sKey)
-            return CookieFormat.decode(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + sKey.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+            return CookieFormat.decode(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + sKey.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || default_val;
         },
         setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
             verification_key(sKey)
