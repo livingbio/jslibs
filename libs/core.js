@@ -39,7 +39,7 @@ Tagtoo.Core = {
     },
     createIframe: function(url) {
         var iframe = document.createElement('iframe');
-        iframe.url = url;
+        iframe.setAttribute('src', url);
         iframe.width = 0;
         iframe.height = 0;
 
