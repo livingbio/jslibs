@@ -11,6 +11,15 @@ var sinon = require('sinon');
 // --------------------------------------------------------
 
 describe('TEST_' + fileName, function() {
+    describe('format', function() {
+        it('test format with string', function() {
+            assert.deepEqual("0:1:2:3", core.format("{0}:{1}:{2}:{3}", "0", "1", "2", "3"));
+            assert.deepEqual("0:1:2:{3}", core.format("{0}:{1}:{2}:{3}", "0", "1", "2"));
+            assert.deepEqual("0:1:3:2", core.format("{0}:{1}:{3}:{2}", 0, 1, 2, 3));
+            assert.deepEqual("0:0:0:0", core.format("{0}:{0}:{0}:{0}", 0, 2, 3, 3));
+        });
+    });
+
     describe('encodeQueryData & decodeQueryData', function() {
         var a = {"a": "1", "b": "2"};
         var b = {"a": "2", "c": "3"};
