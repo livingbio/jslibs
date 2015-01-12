@@ -38,6 +38,40 @@ Tagtoo.Set = {
             }
         }
         return temp;
+    },
+    deep_get: function(obj, full_path) {
+        var paths = full_path.split('.');
+        var result = obj;
+        try {
+            for (var idx in paths) {
+                if(!paths.propertyIsEnumerable(idx)){
+                    continue;
+                }
+                result = result[paths[idx]]
+            }
+        } catch (err) {
+            result = undefined;
+        }
+        return result;
+    },
+    deep_set: function(obj, full_path, value) {
+        var set = function(obj, paths, value) {
+            if (paths.length == 0) {
+                return value;
+            }
+            if (obj == undefined) {
+                obj = {};
+            }
+            if (obj.constructor != Object && path) {
+                throw 'type error';
+            }
+            var path = paths[0];
+            obj[path] = set(obj[path], paths.slice(1), value)
+            return obj
+        }
+
+        var paths = full_path.split('.');
+        return set(obj, paths, value);
     }
 }
 
