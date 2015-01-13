@@ -72,6 +72,14 @@ Tagtoo.Set = {
 
         var paths = full_path.split('.');
         return set(obj, paths, value);
+    },
+    getRamdomNumber: function(l,range) {
+        var r = range || 36;//default a-z + 0-9
+        var s = "";
+        for (var i = l; i >= 0; i--) {
+            s += (Math.random() * 100 % r | 0).toString(r)
+        };
+        return s
     }
 }
 
