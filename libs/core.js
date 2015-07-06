@@ -49,7 +49,7 @@ Tagtoo.Core = {
     },
     jsonp: function(url, success, error, cache, cache_salt) {
         error = error || function(){};
-        cache = boolean(cache);
+        cache = Boolean(cache);
         cache_salt = cache_salt || "";
         var jsonpCallback = Tagtoo.Core.hash(url, cache_salt);
         $.ajax({
