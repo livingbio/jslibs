@@ -40,8 +40,27 @@ Tagtoo.Core = {
         }
         return data;
     },
+    hash: function(url, salt){
+        var data = "_" +  salt + url;
+        return "_" + data.replace(/[^\w]/g, '')
+    },
     ajax: function(url, cb) {
         $.get(url, cb);
+    },
+    jsonp: function(url, success, error, cache, cache_salt) {
+        error = error || function(){};
+        cache = boolean(cache);
+        cache_salt = cache_salt || "";
+        var jsonpCallback = Tagtoo.Core.hash(url, cache_salt);
+        $.ajax({
+                dataType:"jsonp",
+                cache: cache, 
+                jsonpCallback: jsonpCallback,
+                url: url, 
+                type:"get",
+                success: success,
+                error: error,
+            });
     },
     createIframe: function(url) {
         var iframe = document.createElement('iframe');
