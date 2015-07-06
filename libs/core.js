@@ -47,11 +47,13 @@ Tagtoo.Core = {
     ajax: function(url, cb) {
         $.get(url, cb);
     },
-    jsonp: function(url, success, error, cache, cache_salt) {
-        error = error || function(){};
-        cache = Boolean(cache);
-        cache_salt = cache_salt || "";
+    jsonp: function(info) {
+        var cache = Boolean(info.cache);
+        var cache_salt = info.cache_salt || "";
+        var url = info.url;
         var jsonpCallback = Tagtoo.Core.hash(url, cache_salt);
+        var error = info.error || function(){};
+        var success = info.success;
         $.ajax({
                 dataType:"jsonp",
                 cache: cache, 
