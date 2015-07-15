@@ -40,6 +40,30 @@ Tagtoo.Core = {
         }
         return data;
     },
+    concatAndResolveUrl: function(url, concat) {
+        var url1 = url.split('/');
+        var url2 = concat.split('/');
+        var url3 = [ ];
+        for (var i = 0, l = url1.length; i < l; i ++) {
+            if (url1[i] == '..') {
+                url3.pop();
+            } else if (url1[i] == '.') {
+                continue;
+            } else {
+                url3.push(url1[i]);
+            }
+        }
+        for (var i = 0, l = url2.length; i < l; i ++) {
+            if (url2[i] == '..') {
+                url3.pop();
+            } else if (url2[i] == '.') {
+                continue;
+            } else {
+                url3.push(url2[i]);
+            }
+        }
+        return url3.join('/');
+    },
     hash: function(url, salt){
         var data = "_" +  salt + url;
         return "_" + data.replace(/[^\w]/g, '')
@@ -55,14 +79,14 @@ Tagtoo.Core = {
         var error = info.error || function(){};
         var success = info.success;
         $.ajax({
-                dataType:"jsonp",
-                cache: cache, 
-                jsonpCallback: jsonpCallback,
-                url: url, 
-                type:"get",
-                success: success,
-                error: error,
-            });
+            dataType:"jsonp",
+            cache: cache, 
+            jsonpCallback: jsonpCallback,
+            url: url, 
+            type:"get",
+            success: success,
+            error: error,
+        });
     },
     createIframe: function(url) {
         var iframe = document.createElement('iframe');
@@ -76,7 +100,7 @@ Tagtoo.Core = {
     },
     loadScript: function(url, callback) {
         var script = document.createElement("script")
-        script.type = "text/javascript";
+            script.type = "text/javascript";
 
         if (script.readyState) {
             // IE
