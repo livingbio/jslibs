@@ -11,11 +11,11 @@
 |*|
 |*|  Syntaxes:
 |*|
-|*|  * Tagtoo.Cookie.setItem(name, value[, end[, path[, domain[, secure]]]])
-|*|  * Tagtoo.Cookie.getItem(name)
-|*|  * Tagtoo.Cookie.removeItem(name[, path], domain)
-|*|  * Tagtoo.Cookie.hasItem(name)
-|*|  * Tagtoo.Cookie.keys()
+|*|  * GCloud.Cookie.setItem(name, value[, end[, path[, domain[, secure]]]])
+|*|  * GCloud.Cookie.getItem(name)
+|*|  * GCloud.Cookie.removeItem(name[, path], domain)
+|*|  * GCloud.Cookie.hasItem(name)
+|*|  * GCloud.Cookie.keys()
 |*|
 |*|  :: cookie Format js ::
 |*|
@@ -32,7 +32,7 @@
 |*|
 |*|  updated:
 |*|     2014-4-7: 拔除 key name 容錯, 避免前後端溝通上問題, example
-|*|         Tagtoo.Cookie.setItem('中文', "value")
+|*|         GCloud.Cookie.setItem('中文', "value")
 |*|         這樣實際上存在 cookie 裡面的會是 %E4%B8%AD%E6%96%87=value
 |*|         後端就需要用 %E4%B8%AD%E6%96%87 才能拿到 value.. 不過假如用這package 的不知道內部用 encodeURIComponent 壓過.. 那後端就永遠不知道出問題了..
 |*|
@@ -190,7 +190,7 @@
         },
         removeItem: function (sKey, sPath, sDomain) {
             verification_key(sKey)
-            if (!sKey || !Tagtoo.Cookie.hasItem(sKey)) { return false; }
+            if (!sKey || !GCloud.Cookie.hasItem(sKey)) { return false; }
             document.cookie = sKey + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + ( sDomain ? "; domain=" + sDomain : "") + ( sPath ? "; path=" + sPath : "");
             return true;
         },
@@ -204,17 +204,17 @@
             return aKeys;
         },
         getOrSetItem: function(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-            if (Tagtoo.Cookie.getItem(sKey)) {
-                return Tagtoo.Cookie.getItem(sKey)
+            if (GCloud.Cookie.getItem(sKey)) {
+                return GCloud.Cookie.getItem(sKey)
             }else{
-                Tagtoo.Cookie.setItem(sKey, sValue, vEnd, sPath, sDomain, bSecure)
+                GCloud.Cookie.setItem(sKey, sValue, vEnd, sPath, sDomain, bSecure)
                 return sValue
             }
         }
     };
-    Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
-    Tagtoo.CookieFormat = CookieFormat;
-    Tagtoo.Cookie = Cookie;
-    module.exports = Tagtoo.Cookie;
+    GCloud = (typeof GCloud === 'undefined') ? {} : GCloud;
+    GCloud.CookieFormat = CookieFormat;
+    GCloud.Cookie = Cookie;
+    module.exports = GCloud.Cookie;
 }());
 

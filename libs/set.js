@@ -1,6 +1,6 @@
-Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
+GCloud = (typeof GCloud === 'undefined') ? {} : GCloud;
 
-Tagtoo.Set = {
+GCloud.Set = {
     countKey: function() {
         var temp = {};
         for (var i = 0; i < arguments.length; i++) {
@@ -12,7 +12,7 @@ Tagtoo.Set = {
         return temp;
     },
     intersect: function() {
-        var temp = Tagtoo.Set.countKey.apply(this, arguments);
+        var temp = GCloud.Set.countKey.apply(this, arguments);
         var results = [];
 
         for (var i in temp) {
@@ -23,7 +23,7 @@ Tagtoo.Set = {
         return results;
     },
     union: function() {
-        var temp = Tagtoo.Set.countKey.apply(this, arguments);
+        var temp = GCloud.Set.countKey.apply(this, arguments);
         var results = [];
         for (var k in temp)
             results.push(k);
@@ -83,4 +83,4 @@ Tagtoo.Set = {
     }
 }
 
-module.exports = Tagtoo.Set;
+module.exports = GCloud.Set;

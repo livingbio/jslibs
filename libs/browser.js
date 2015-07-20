@@ -1,10 +1,10 @@
-Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
+GCloud = (typeof GCloud === 'undefined') ? {} : GCloud;
 
-Tagtoo.Browser = {
+GCloud.Browser = {
     get_browser_tags: function() {
 
         var result = [];
-        Tagtoo.Browser.hasFlash() && result.push('hasFlash');
+        GCloud.Browser.hasFlash() && result.push('hasFlash');
 
         return result;
 
@@ -24,5 +24,5 @@ Tagtoo.Browser = {
         return hasFlash;
     }
 }
-module.exports = Tagtoo.Browser;
+module.exports = GCloud.Browser;
 

@@ -1,9 +1,9 @@
-Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
+GCloud = (typeof GCloud === 'undefined') ? {} : GCloud;
 
 set = require('./set.js');
 url = require('url')
 
-Tagtoo.Core = {
+GCloud.Core = {
     url: url,
     format: function(format) {
         var args = Array.prototype.slice.call(arguments, 1);
@@ -54,14 +54,14 @@ Tagtoo.Core = {
         var cache = Boolean(info.cache);
         var cache_salt = info.cache_salt || "";
         var url = info.url;
-        var jsonpCallback = Tagtoo.Core.hash(url, cache_salt);
+        var jsonpCallback = GCloud.Core.hash(url, cache_salt);
         var error = info.error || function(){};
         var success = info.success;
         $.ajax({
             dataType:"jsonp",
-            cache: cache, 
+            cache: cache,
             jsonpCallback: jsonpCallback,
-            url: url, 
+            url: url,
             type:"get",
             success: success,
             error: error,
@@ -104,4 +104,4 @@ Tagtoo.Core = {
     }
 }
 
-module.exports = Tagtoo.Core;
+module.exports = GCloud.Core;
