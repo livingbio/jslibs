@@ -1,7 +1,7 @@
 {
-  "name": "Tagtoo_tools",
+  "name": "jslibs",
   "version": "0.0.1",
-  "description": "Tagtoo tools",
+  "description": "js tools",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tagtoo/Tagtoo_tools.git"
+    "url": "https://github.com/living-bio/jslibs.git"
   },
   "keywords": [
     "tools",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tagtoo/Tagtoo_tools/issues"
+    "url": "https://github.com/living-bio/jslibs.git/issues"
   },
-  "homepage": "https://github.com/Tagtoo/Tagtoo_tools",
+  "homepage": "https://github.com/living-bio/jslibs.git",
   "devDependencies": {
     "base64-js": "0.0.7",
     "chai": "^1.10.0",
