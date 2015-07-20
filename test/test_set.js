@@ -15,7 +15,7 @@ describe('TEST_' + fileName, function() {
         var a = ["1", "2", "3"];
         var b = ["3", "4", "5"];
         var c = ["4", "5", "6"];
-        var set = Tagtoo.Set;
+        var set = GCloud.Set;
 
         var ab = set.intersect(a, b);
         var bc = set.intersect(b, c);
@@ -33,7 +33,7 @@ describe('TEST_' + fileName, function() {
         var a = ["1", "2", "3"];
         var b = ["3", "4", "5"];
         var c = ["4", "5", "6", "7"];
-        var set = Tagtoo.Set;
+        var set = GCloud.Set;
 
         var ab = set.union(a, b);
         var bc = set.union(b, c);
@@ -61,7 +61,7 @@ describe('TEST_' + fileName, function() {
             "d": 4
         };
 
-        var set = Tagtoo.Set;
+        var set = GCloud.Set;
         var ab = set.merge(a, b);
         var bc = set.merge(b, c);
         var ac = set.merge(a, c);

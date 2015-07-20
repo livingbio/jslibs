@@ -24,8 +24,8 @@ describe('TEST_' + fileName, function() {
         var a = {"a": "1", "b": "2"};
         var b = {"a": "2", "c": "3"};
         var c = {"b": "5", "a": "4", "d": "5"};
-        var core = Tagtoo.Core;
-        var set = Tagtoo.Set;
+        var core = GCloud.Core;
+        var set = GCloud.Set;
 
         var qa = core.encodeQueryData(a);
         var qb = core.encodeQueryData(b);

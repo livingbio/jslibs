@@ -16,8 +16,8 @@ describe('TEST_' + fileName, function() {
         // mock property
         global.document = {"cookie": ""};
 
-        var cookie = Tagtoo.Cookie;
-        var cookie_format = Tagtoo.CookieFormat;
+        var cookie = GCloud.Cookie;
+        var cookie_format = GCloud.CookieFormat;
 
         it('test add / remove object value', function() {
             global.document = {"cookie": ""};
