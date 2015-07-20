@@ -130,6 +130,11 @@
             var result = [];
             for(var key in decodedObject){
                 var value = decodedObject[key];
+
+                if( !decodeURIComponent.hasOwnProperty( key )){
+                    continue;
+                }
+
                 if(value.constructor === Boolean){
                     if(value){
                         result.push(__encode(key));

@@ -1,8 +1,10 @@
 Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
 
 set = require('./set.js');
+url = require('url')
 
 Tagtoo.Core = {
+    url: url,
     format: function(format) {
         var args = Array.prototype.slice.call(arguments, 1);
         return format.replace(/{(\d+)}/g, function(match, number) {
@@ -40,30 +42,7 @@ Tagtoo.Core = {
         }
         return data;
     },
-    concatAndResolveUrl: function(url, concat) {
-        var url1 = url.split('/');
-        var url2 = concat.split('/');
-        var url3 = [ ];
-        for (var i = 0, l = url1.length; i < l; i ++) {
-            if (url1[i] == '..') {
-                url3.pop();
-            } else if (url1[i] == '.') {
-                continue;
-            } else {
-                url3.push(url1[i]);
-            }
-        }
-        for (var i = 0, l = url2.length; i < l; i ++) {
-            if (url2[i] == '..') {
-                url3.pop();
-            } else if (url2[i] == '.') {
-                continue;
-            } else {
-                url3.push(url2[i]);
-            }
-        }
-        return url3.join('/');
-    },
+    concatAndResolveUrl: url.resolve,
     hash: function(url, salt){
         var data = "_" +  salt + url;
         return "_" + data.replace(/[^\w]/g, '')
