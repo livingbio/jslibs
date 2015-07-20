@@ -131,7 +131,7 @@
             for(var key in decodedObject){
                 var value = decodedObject[key];
 
-                if( !decodeURIComponent.hasOwnProperty( key )){
+                if( !decodedObject.hasOwnProperty( key )){
                     continue;
                 }
 
