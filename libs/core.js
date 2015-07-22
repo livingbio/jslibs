@@ -1,7 +1,7 @@
 GCloud = (typeof GCloud === 'undefined') ? {} : GCloud;
 
 set = require('./set.js');
-url = require('url')
+url = require('url');
 
 GCloud.Core = {
     url: url,
