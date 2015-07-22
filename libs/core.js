@@ -1,10 +1,8 @@
 Tagtoo = (typeof Tagtoo === 'undefined') ? {} : Tagtoo;
 
 set = require('./set.js');
-url = require('url')
-jQuery = require('jquery')
+url = require('url');
 
-Tagtoo.jQuery = jQuery;
 Tagtoo.Core = {
     url: url,
     format: function(format) {
